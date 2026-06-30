@@ -1410,7 +1410,7 @@ function connectWebSocket() {
   const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
   const wsUrl = `${wsProtocol}//${window.location.host}/ws`;
 
-  ws = new WebSocket(wsUrl);
+ws = new WebSocket("ws://127.0.0.1:8000/ws");
 
   ws.onopen = () => {
     updateWSStatus('connected');
