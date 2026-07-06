@@ -203,35 +203,4 @@ input[type="range"]::-webkit-slider-thumb {
   border-color: #3B82F6 !important;
 }
 
-/* Optimized mobile layout for screens under 768px */
-@media (max-width: 768px) {
-    body {
-        display: flex;
-        flex-direction: column !important;
-        height: 100vh;
-        overflow: hidden;
-    }
 
-    /* Allow the sidebar panel to hold the logo, analytics, and fleet directory with its own scrollbar */
-    aside, .w-80, .w-96 { 
-        width: 100% !important;
-        height: 50vh !important; 
-        max-height: 50vh !important;
-        display: flex !important;
-        flex-direction: column !important;
-        overflow-y: auto !important; /* Forces a scrollbar inside the panel so the fleet directory is fully accessible */
-        padding-bottom: 10px;
-    }
-
-    /* Keep the map beautifully framed in the remaining half of the screen */
-    main, .flex-1 {
-        height: 50vh !important; 
-        width: 100% !important;
-        position: relative;
-    }
-
-    #map {
-        height: 100% !important;
-        width: 100% !important;
-    }
-}
