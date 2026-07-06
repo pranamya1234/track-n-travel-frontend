@@ -203,8 +203,32 @@ input[type="range"]::-webkit-slider-thumb {
   border-color: #3B82F6 !important;
 }
 
-/* Override Tailwind's collapsing percentage height on mobile screens */
-#map {
-    height: 100vh !important; 
-    width: 100vw !important;
+/* Responsive mobile adjustments for screens under 768px */
+@media (max-width: 768px) {
+    /* Prevent the entire dashboard layout from breaking or overflowing */
+    body, .min-h-screen {
+        display: flex;
+        flex-direction: column !important;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /* Force the sidebar/analytics panel to only take up a portion of the screen */
+    aside, .w-80, .w-96 { 
+        width: 100% !important;
+        height: 45vh !important; /* Limits analytics panel to the top 45% of the screen */
+        overflow-y: auto !important;
+    }
+
+    /* Force the map container to fill the remaining screen space below the panel */
+    main, .flex-1 {
+        height: 55vh !important; /* Gives the map the bottom 55% of the screen */
+        width: 100% !important;
+        position: relative;
+    }
+
+    #map {
+        height: 100% !important;
+        width: 100% !important;
+    }
 }
