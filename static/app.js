@@ -146,6 +146,11 @@ function initMap() {
     maxZoom: 18,
     attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
   }).addTo(map);
+  
+// Force map to recalculate its dimensions correctly on mobile screens
+  setTimeout(() => {
+        map.invalidateSize();
+    }, 500);
 
   injectDynamicRouteStyles();
 }
