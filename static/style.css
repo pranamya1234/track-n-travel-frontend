@@ -202,3 +202,9 @@ input[type="range"]::-webkit-slider-thumb {
 .vehicle-icon-ring.dir-down {
   border-color: #3B82F6 !important;
 }
+
+/* Override Tailwind's collapsing percentage height on mobile screens */
+#map {
+    height: 100vh !important; 
+    width: 100vw !important;
+}
