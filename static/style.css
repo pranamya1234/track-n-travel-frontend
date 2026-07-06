@@ -203,26 +203,29 @@ input[type="range"]::-webkit-slider-thumb {
   border-color: #3B82F6 !important;
 }
 
-/* Responsive mobile adjustments for screens under 768px */
+/* Optimized mobile layout for screens under 768px */
 @media (max-width: 768px) {
-    /* Prevent the entire dashboard layout from breaking or overflowing */
-    body, .min-h-screen {
+    body {
         display: flex;
         flex-direction: column !important;
         height: 100vh;
         overflow: hidden;
     }
 
-    /* Force the sidebar/analytics panel to only take up a portion of the screen */
+    /* Allow the sidebar panel to hold the logo, analytics, and fleet directory with its own scrollbar */
     aside, .w-80, .w-96 { 
         width: 100% !important;
-        height: 45vh !important; /* Limits analytics panel to the top 45% of the screen */
-        overflow-y: auto !important;
+        height: 50vh !important; 
+        max-height: 50vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow-y: auto !important; /* Forces a scrollbar inside the panel so the fleet directory is fully accessible */
+        padding-bottom: 10px;
     }
 
-    /* Force the map container to fill the remaining screen space below the panel */
+    /* Keep the map beautifully framed in the remaining half of the screen */
     main, .flex-1 {
-        height: 55vh !important; /* Gives the map the bottom 55% of the screen */
+        height: 50vh !important; 
         width: 100% !important;
         position: relative;
     }
