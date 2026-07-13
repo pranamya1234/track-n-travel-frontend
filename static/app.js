@@ -47,8 +47,8 @@ const focusTimeline = document.getElementById('upcoming-stops-timeline');
 const closeFocusBtn = document.getElementById('close-focus-btn');
 const focusLastUpdated = document.getElementById('focus-last-updated');
 
-const speedSlider = document.getElementById('speed-slider');
-const speedLabel = document.getElementById('speed-label');
+//const speedSlider = document.getElementById('speed-slider');
+//const speedLabel = document.getElementById('speed-label');
 const recenterBtn = document.getElementById('recenter-btn');
 
 const toastContainer = document.getElementById('toast-container');
@@ -1482,16 +1482,6 @@ ws = new WebSocket("wss://track-n-travel-backend.onrender.com/ws");
   };
 }
 
-// Update speed slider input values
-function updateSpeedSliderUI(multiplier) {
-  let sliderVal = 1;
-  if (multiplier === 2.0) sliderVal = 2;
-  if (multiplier === 4.0) sliderVal = 3;
-  
-  speedSlider.value = sliderVal;
-  speedLabel.innerText = `${multiplier}x`;
-}
-
 // Search and Filter Interactions
 searchInput.addEventListener('input', (e) => {
   searchQuery = e.target.value;
@@ -1526,22 +1516,6 @@ filterOnTime.addEventListener('click', () => setFilterTab('ontime'));
 filterDelayed.addEventListener('click', () => setFilterTab('delayed'));
 
 dismissToastBtn.addEventListener('click', hideToast);
-
-speedSlider.addEventListener('input', (e) => {
-  const val = parseInt(e.target.value);
-  let multiplier = 1.0;
-  if (val === 2) multiplier = 2.0;
-  if (val === 3) multiplier = 4.0;
-  
-  speedLabel.innerText = `${multiplier}x`;
-  
-  if (ws && ws.readyState === WebSocket.OPEN) {
-    ws.send(JSON.stringify({
-      type: "set_speed",
-      multiplier: multiplier
-    }));
-  }
-});
 
 if (closeFocusBtn) {
   closeFocusBtn.addEventListener('click', () => {
