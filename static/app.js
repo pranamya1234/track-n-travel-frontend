@@ -1460,7 +1460,7 @@ ws = new WebSocket("wss://track-n-travel-backend.onrender.com/ws");
         updateForceActiveUI(data.force_active_simulation);
       }
       
-      updateSpeedSliderUI(speedMultiplier);
+      //updateSpeedSliderUI(speedMultiplier);
       ensureOSRMRoutes(vehiclesData);
       updateMapMarkers(vehiclesData);
       handleToastAlerts(vehiclesData);
